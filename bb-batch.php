@@ -3,6 +3,10 @@
  * 
  * Blackboard Batch file helper	
  * @author Ian McNaught http://twitter.com/ianmcnaught
+ * Instructions:
+ * See comments on functions below to adapt for your module code/student code requirements.
+ * It is set to archive all batch files created in a folder called "files" in the same folder as this script.
+ * This must be created with write permissions first.
  **/
 
 function __autoload($class_name) {
@@ -66,6 +70,7 @@ $filedata="";
 foreach ($lines as $line){
 	$filedata .= $line."\r\n";
 }
+//alter the lines below if you do not wish to archive all the files
 $myFile = "files/batchfile".time().".txt";//where to archive the files to (must have write permissions)
 $fh = fopen($myFile, 'w') or die("can't open file");
 fwrite($fh, $filedata);
